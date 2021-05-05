@@ -1,16 +1,16 @@
-# **caps**
+# **Caps**
 
 Author: Jessi Velazquez
 
 Deployed Link: N/A
 
-Pull Request: [https://github.com/JessiVelazquez/caps/pull/2](https://github.com/JessiVelazquez/caps/pull/2)
+Pull Request: [https://github.com/JessiVelazquez/caps/pull/5](https://github.com/JessiVelazquez/caps/pull/5)
 
 Testing: N/A
 
 ## **Overview and Description**
 
-This is an application that uses Node.js's built in event emitter functionality to log event for customer orders, driver pick ups, and deliveries, using fake data from Node package Faker, and logs them to the console at set time intervals.
+This is an application that uses socket.io to log events for customer orders, driver pick ups, and deliveries, using fake data from Node package Faker, and logs them to the console at set time intervals.
 
 ## **Setup**
 
@@ -26,6 +26,8 @@ STORE=FlowerStore
 
 ## **Dependencies**
 
+- socket.io
+- socket.io-client
 - Faker
 - dotenv
 
@@ -37,10 +39,24 @@ node i
 
 ## **Run the Application**
 
-To run the application, run the following command in the terminal at the root level:
+To run the application, run the following commands simultaneously in three terminal windows:
+
+From the root level:
 
 ```
 node caps.js
+```
+
+From within the drivers folder, within the modules folder, run:
+
+```
+node drivers.js
+```
+
+From within the vendors folder, within the modules folder, run:
+
+```
+node vendor.js
 ```
 
 # **Architecture**
