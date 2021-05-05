@@ -18,17 +18,17 @@ deliverySystem.on('connection', socket => {
   });
 
   socket.on('order', payload => {
-    logger('pickup', payload);
+    logger('order', payload);
     // console.log('EVENT:', {
     //   event: 'pickup',
     //   time: new Date,
     //   payload,
     // });
-    deliverySystem.emit('pickup', payload);
+    deliverySystem.emit('order', payload);
   });
 
   socket.on('in-transit', payload => {
-    logger('pickup', payload);
+    logger('in-transit', payload);
     //========global emit==========\\
     deliverySystem.emit('in-transit', payload);
     //=======emit just to those who care======\\
@@ -36,7 +36,7 @@ deliverySystem.on('connection', socket => {
   });
 
   socket.on('delivered', payload => {
-    logger('pickup', payload);
+    logger('delivered', payload);
     //======this is global emit=========\\
     deliverySystem.emit('delivered', payload);
     //=======this is emit just to those who care==========\\
