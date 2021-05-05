@@ -11,14 +11,14 @@ let deliverySystem = io.connect(`${HOST}/caps`);
 deliverySystem.on('pickup', payload => {
   setTimeout(() => {
     console.log(`DRIVER: picked up ${payload.orderID}`)
-  }, 1000);
+  }, 1500);
   deliverySystem.emit('in-transit', payload);
 });
 
 deliverySystem.on('in-transit', payload => {
   setTimeout(() => {
     console.log(`DRIVER delivered order number: ${payload.orderID}`)
-  }, 1000);
+  }, 3000);
   deliverySystem.emit('delivered', payload);
 });
 
