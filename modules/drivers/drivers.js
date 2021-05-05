@@ -1,18 +1,25 @@
 'use strict';
 
-const events = require('../../events.js');
+const { Socket } = require('socket.io-client');
 
+const io = require('socket.io-client');
 
-events.on('pickup', payload => {
+const HOST = process.env.HOST || 'http://localhost:3000';
+
+let deliverySystem = io.connect(`${HOST}/caps`);
+
+deliverySystem.on('pickup', payload => {
   setTimeout(() => {
     console.log(`DRIVER: picked up ${payload.orderID}`)
   }, 1000);
-  events.emit('in-transit', payload);
+  deliverySystem.emit('in-transit', payload);
 });
 
-events.on('in-transit', payload => {
+deliverySystem.on('in-transit', payload => {
   setTimeout(() => {
     console.log(`DRIVER delivered order number: ${payload.orderID}`)
   }, 1000);
-  events.emit('delivered', payload);
+  deliverySystem.emit('delivered', payload);
 });
+
+
