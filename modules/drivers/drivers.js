@@ -8,18 +8,22 @@ const HOST = process.env.HOST || 'http://localhost:3000';
 
 let deliverySystem = io.connect(`${HOST}/caps`);
 
-deliverySystem.on('pickup', payload => {
+const store = 'jessi store';
+
+deliverySystem.emit('join', store);
+
+deliverySystem.on('order', payload => {
   setTimeout(() => {
     console.log(`DRIVER: picked up ${payload.orderID}`)
+    deliverySystem.emit('in-transit', payload);
   }, 1500);
-  deliverySystem.emit('in-transit', payload);
 });
 
 deliverySystem.on('in-transit', payload => {
   setTimeout(() => {
     console.log(`DRIVER delivered order number: ${payload.orderID}`)
+    deliverySystem.emit('delivered', payload);
   }, 3000);
-  deliverySystem.emit('delivered', payload);
 });
 
 
