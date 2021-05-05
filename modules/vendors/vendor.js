@@ -8,7 +8,9 @@ const faker = require('faker');
 
 let deliverySystem = io.connect(`${HOST}/caps`);
 
-const store = process.env.STORE;
+const store = 'jessi store';
+
+deliverySystem.emit('join', store);
 
 setInterval(() => {
   let order = {
