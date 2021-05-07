@@ -8,7 +8,7 @@ const HOST = process.env.HOST || 'http://localhost:3000';
 
 let deliverySystem = io.connect(`${HOST}/caps`);
 
-const store = 'jessi store';
+const store = 'delivery driver';
 
 deliverySystem.emit('join', store);
 
