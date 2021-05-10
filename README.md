@@ -10,7 +10,7 @@ Testing: N/A
 
 ## **Overview and Description**
 
-This is an application that uses socket.io to log events for customer orders, driver pick ups, and deliveries, using fake data from Node package Faker, and logs them to the console at set time intervals.
+This is an application that uses socket.io to log events for customer orders, driver pick ups, and deliveries, using fake data from Node package Faker, and logs them to the console at set time intervals. We also have a queue server which collects messages of orders from two different vendors, and logs these messages, sending them back through the deliver process and then deleting the message.
 
 ## **Setup**
 
