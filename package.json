@@ -1,7 +1,7 @@
 {
   "name": "caps",
   "version": "1.0.0",
-  "description": "",
+  "description": "Author: Jessi Velazquez",
   "main": "caps.js",
   "scripts": {
     "start": "node caps.js",
@@ -26,5 +26,6 @@
     "socket.io": "^4.0.1",
     "socket.io-client": "^4.0.1",
     "uuid": "^8.3.2"
-  }
+  },
+  "devDependencies": {}
 }
