@@ -19,11 +19,6 @@ deliverySystem.on('connection', socket => {
 
   socket.on('order', payload => {
     logger('order', payload);
-    // console.log('EVENT:', {
-    //   event: 'pickup',
-    //   time: new Date,
-    //   payload,
-    // });
     deliverySystem.emit('order', payload);
   });
 
